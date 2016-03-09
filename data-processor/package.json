@@ -1,0 +1,26 @@
+{
+  "name": "data-processor",
+  "version": "1.0.0",
+  "description": "Simple data processor which obtains a rendom number, processes with a delay and sends to a redis hash",
+  "main": "miner.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+	"start": "node miner.js"
+  },
+  "author": "Jozsef Orosz",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/username/repository.git"
+  },
+  "dependencies": {
+    "async": "^1.5.2",
+    "moment": "^2.12.0",
+    "promise-redis": "0.0.5",
+    "redis": "^2.5.0-1",
+    "request-promise": "^2.0.1",
+    "shortid": "^2.2.4",
+    "sleep": "^3.0.1",
+    "sleep-promise": "^1.0.0"
+  }
+}
