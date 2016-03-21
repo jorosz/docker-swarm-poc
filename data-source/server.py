@@ -17,7 +17,10 @@ class RequestHandler(SimpleHTTPRequestHandler):
         if self.path == '/':
             self.send_response(200)
             self.send_header('Content-type', 'application/json')
-            sleep(.15) # This enables the server to respond every 150ms ~ 8TPS max per system
+            
+            work_time=float(randint(20,180))/1000;
+            sleep(work_time) # This enables the server to respond every ~100ms ~ 10TPS max per system
+            
             rnd=randint(1,100)
             response=json.dumps(rnd)
             self.send_header('Content-length', len(response))

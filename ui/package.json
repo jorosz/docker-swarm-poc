@@ -1,0 +1,20 @@
+{
+  "name": "docker-poc-ui",
+  "version": "1.0.0",
+  "description": "Docker PoC UI Chart",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Jozsef Orosz",
+  "license": "MIT",
+  "devDependencies": {
+    "grunt": "^0.4.5",
+    "grunt-contrib-copy": "^1.0.0",
+    "grunt-contrib-requirejs": "^1.0.0",
+    "grunt-contrib-watch": "^1.0.0",
+    "grunt-serve": "^0.1.6",
+    "load-grunt-config": "^0.19.1",
+    "load-grunt-tasks": "^3.4.1"
+  }
+}

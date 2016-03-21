@@ -30,20 +30,22 @@ function miner_task(next) {
 	token=token.substring(0,token.length-1); // cut off last digit to round it to 10s data
 	var id = shortid.generate();
 		
+	// we use blocking sleep to pretend as if we did some valuable calculation or operation
+	var sleep_time = Math.floor(Math.random()*400000)+200000;
+	sleep.usleep(sleep_time); // in microseconds - should come to 400ms on average (throughput ~25 per worker)
+
 	requestp(data_source_request_options) // Start with a JSON GET to pull a number
 	.then(function(res) {
 		// Res is the parsed number from JSON
 		console.log(id + ' got response ' + res);
-		
-		// we use blocking sleep to pretend as if we did some valuable calculation or operation
-		sleep.usleep(300000); // in microseconds - should be 300ms (enables 3TPS max per worker)
-		
+				
 		// Then we make redis increment our TPS counter
 		var promise = redis_client.incr(token); 
-		return promise; // Return as promise for next step
+		redis_client.expire(token, 1200); // Make Redis entries live for 20 minutes only
+		return promise; // Return as promise for next step - we don't care about the 'expire' call
 	}).then(function(value) {
 		// REDIS response
-		console.log(id+' redis counter is at '+value)
+		console.log(id+' redis counter '+token+' is at '+value)
 	}).catch(function(err) {
 		// Something went wrong above
 		console.log(id + ' ' + err.message);
