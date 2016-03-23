@@ -31,5 +31,5 @@ class RequestHandler(SimpleHTTPRequestHandler):
             self.send_response(404)
 
         
-server = HTTPServer(('', 8080), RequestHandler)
+server = HTTPServer(('', 80), RequestHandler)
 server.serve_forever()

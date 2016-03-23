@@ -18,7 +18,7 @@ define(['angular','angular-chart'], function(angular) {
 	    $scope.data = [[]];
 
 		refresh = function() {
-			$http.get('http://localhost:8090/chartData').then(function ok(response) {
+			$http.get('/api/chartData').then(function ok(response) {
 				$scope.labels = [];
 				$scope.data = [[]];
 				

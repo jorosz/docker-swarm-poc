@@ -1,0 +1,7 @@
+grunt
+node_modules
+public
+.*
+Gruntfile.js
+bower.json
+package.json

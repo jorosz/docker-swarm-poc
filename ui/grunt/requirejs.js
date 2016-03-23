@@ -1,10 +1,10 @@
 module.exports ={
 	options: {
-		out: 'www/scripts/bootstrap.js',
 		appDir: 'public',
+		baseUrl: 'scripts',
 		dir: 'www',
 		mainConfigFile: 'public/scripts/config.js',
-		include: ['bootstrap']
+		include: ['bootstrap','config','app'],
 	},
 	// Specific options for prod
 	prod: {

@@ -7,7 +7,7 @@ var moment = require('moment');
 
 
 
-var redis_client=redis.createClient('redis://localhost');
+var redis_client=redis.createClient('redis://redis');
 
 // THis is the main worker function which for this demonstration purpose is simulating a sinlge-thread 
 // behaviour and is forced to run in a loop using the 'async' library. We need to invoke the callback 
@@ -20,7 +20,7 @@ function miner_task(next) {
 	// Parameters for the HTTP request
 	var data_source_request_options = {
 		method: 'GET',
-		uri: 'http://localhost:8080',
+		uri: 'http://data-source/',
 		json: true
 	};
 

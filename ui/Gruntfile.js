@@ -10,8 +10,9 @@ module.exports = function(grunt) {
 	require('load-grunt-tasks')(grunt);
     require('load-grunt-config')(grunt);
 
-	grunt.registerTask('prod', ['requirejs:prod']);
-	grunt.registerTask('dev', ['copy:dev']);
-	grunt.registerTask('watch', ['copy:dev','serve','watch']);
+//	grunt.registerTask('prod', ['requirejs:prod']);
+	grunt.registerTask('prod', ['copy:dev']);
+	grunt.registerTask('dev', ['requirejs:dev']);
+//	grunt.registerTask('watch', ['copy:dev','serve','watch']);
 
 };

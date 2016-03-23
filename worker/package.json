@@ -5,7 +5,7 @@
   "main": "miner.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-	"start": "node miner.js"
+	"start": "node worker.js"
   },
   "author": "Jozsef Orosz",
   "license": "MIT",
@@ -17,10 +17,8 @@
     "async": "^1.5.2",
     "moment": "^2.12.0",
     "promise-redis": "0.0.5",
-    "redis": "^2.5.0-1",
     "request-promise": "^2.0.1",
     "shortid": "^2.2.4",
-    "sleep": "^3.0.1",
-    "sleep-promise": "^1.0.0"
+    "sleep": "^3.0.1"
   }
 }

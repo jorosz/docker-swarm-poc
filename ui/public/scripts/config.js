@@ -1,5 +1,5 @@
 requirejs.config({
-    paths: {
+	paths: {
 		"angular": "../components/angular/angular",
 		"angular-chart" : "../components/angular-chart.js/dist/angular-chart",
 		"chart" : "../components/Chart.js/Chart"

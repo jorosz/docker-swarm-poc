@@ -1,0 +1,25 @@
+version: '2'
+services:
+  data-source:
+    build: ./data-source
+  redis:
+    image: redis:alpine
+  worker:
+    build: ./worker
+    depends_on:
+      - redis
+      - data-source
+  ui-backend:
+    build: ./ui-backend
+    depends_on:
+        - redis
+  ui:
+    build: ./ui
+    ports:
+      - "8080:80"
+    depends_on:
+        - ui-backend
+      
+networks:
+  poc_internal:
+    driver: bridge
