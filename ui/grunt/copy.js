@@ -4,7 +4,7 @@ module.exports = {
 			{
 				expand: true,
 				cwd: 'public',
-				src: '*',
+				src: '**',
 				dest: 'www/'
 			}
 		]

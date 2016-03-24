@@ -11,8 +11,8 @@ module.exports = function(grunt) {
     require('load-grunt-config')(grunt);
 
 //	grunt.registerTask('prod', ['requirejs:prod']);
-	grunt.registerTask('prod', ['copy:dev']);
-	grunt.registerTask('dev', ['requirejs:dev']);
+	grunt.registerTask('prod', ['clean','copy:dev']);
+	grunt.registerTask('dev', ['clean','requirejs:dev']);
 //	grunt.registerTask('watch', ['copy:dev','serve','watch']);
 
 };

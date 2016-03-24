@@ -6,6 +6,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.dao.DataAccessException;
 import org.springframework.data.redis.core.StringRedisTemplate;
 import org.springframework.stereotype.Service;
 
@@ -25,7 +26,7 @@ public class RedisDataSource {
 	 * 
 	 * @param dates List of date keys to fetch from Redis. Should be in the format of YYYYMMDDHHMMS (note: single digit second) 
 	 */
-	public List<ChartData> getChartData(List<String> dates) {
+	public List<ChartData> getChartData(List<String> dates) throws DataAccessException {
 		List<ChartData> result = new ArrayList<ChartData>();
 		
 		try {
@@ -44,6 +45,7 @@ public class RedisDataSource {
 			
 		} catch (Exception e) {
 			LOGGER.log(Level.WARNING,"Exception when talking to Redis",e);
+			throw e;
 		}
 		return result;
 	}

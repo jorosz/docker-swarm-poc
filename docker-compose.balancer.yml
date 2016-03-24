@@ -2,6 +2,23 @@ version: '2'
 services:
   data-source:
     build: ./data-source
+    networks:
+      - private
+  balancer:
+    image: dockercloud/haproxy
+    links:
+      - data-source
+    networks:
+      private:
+      default:
+         aliases:
+           - data-source
+    environment:
+          - DOCKER_TLS_VERIFY
+          - DOCKER_HOST
+          - DOCKER_CERT_PATH
+    volumes:
+          - $DOCKER_CERT_PATH:$DOCKER_CERT_PATH
   redis:
     image: redis:alpine
   worker:
@@ -22,3 +39,6 @@ services:
       - "8080:80"
     depends_on:
         - ui-backend
+
+networks:
+  private:

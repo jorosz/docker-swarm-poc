@@ -1,5 +1,7 @@
 FROM nginx:alpine
-COPY www/ /usr/share/nginx/html
+COPY www/ /var/www
+COPY nginx.conf /etc/nginx/
 EXPOSE 80
+
 
 
